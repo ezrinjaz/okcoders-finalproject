@@ -1,0 +1,27 @@
+<div class="modal-header">
+    <div class="panel-heading">
+        <h3 class="modal-title">{{contact.fname}} {{contact.lname}}</h3>
+    </div>
+</div>
+<div class="modal-body">
+    <div class="panel-body">
+        <div class="col-xs-12 col-sm-3">
+            <img ng-src="{{contact.img}}" alt="Name" class="contactImg img-responsive img-circle" style="height: 6em; width: 6em; border-radius: 50%" />
+            <br />
+        </div>
+        <div class="col-xs-12 col-sm-9">
+            <span class="contactInfo"><b>Street:</b> {{contact.street}}</span><br />
+            <span class="contactInfo"><b>City, State Zip:</b> {{contact.city}}, {{contact.state}} {{contact.zip}}</span><br />
+            <span class="contactInfo"><b>Country:</b> {{contact.country}}</span><br />
+            <span class="contactInfo"><b>Phone:</b> {{contact.phone}}</span><br /> 
+            <span class="contactInfo"><b>Email:</b> {{contact.email}}</span><br />
+            <span class="contactInfo"><b>Category:</b> {{contact.category}}</span><br />
+            <span class="contactInfo"><b>Notes:</b> <br /> {{contact.notes}}</span><br />
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-danger pull-left" type="button" ng-click="delete()">Delete</button>
+    <button class="btn btn-primary" type="button" ng-click="edit()">Edit</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Close</button>
+</div>

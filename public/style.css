@@ -1,0 +1,14 @@
+﻿.contactImg {
+    height: 3em;
+    width: 3em;
+    float: left;  
+}
+
+#map {
+        width: 100%;
+        height: 400px;
+      }
+
+ul {
+    list-style-type: none;
+}

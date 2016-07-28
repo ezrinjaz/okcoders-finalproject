@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contacts</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.3.3/ui-bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.3.3/ui-bootstrap-tpls.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/contactsCtrl.js"></script>
+    <script type="text/javascript" src="js/contactInfoCtrl.js"></script>
+    <script type="text/javascript" src="js/contactEditCtrl.js"></script>
+</head>
+<body ng-app="contactsApp">
+    <div class="container" ng-controller="contactsCtrl">
+        <div class="row">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h2>Contacts</h2>
+                </div>
+                <div class="panel-body">
+                    <form class="form-inline">
+                        <div class="form-group">
+                            <label>Search: </label>
+                            <input class="form-control" ng-model="searchObj.$">
+                        </div>
+                    </form>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th ng-class="col-sm-1"></th>
+                                <th ng-class="col-sm-3"><a ng-click="setSort('fname')">First Name<span ng-class="sortIcon('fname')"></span></a></th>
+                                <th ng-class="col-sm-3"><a ng-click="setSort('lname')">Last Name<span ng-class="sortIcon('lname')"></span></a></th>
+                                <th ng-class="col-sm-3"><a ng-click="setSort('state')">Location<span ng-class="sortIcon('state')"></span></a></th>
+                                <th ng-class="col-sm-1">Info</th>
+                                <th ng-class="col-sm-1"><a ng-click="newContact()"><span class="glyphicon glyphicon-plus pull-right"></span></a></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr  ng-repeat="contact in contacts | filter:searchObj | orderBy:sortProp:sortReverse">
+                                <td class="img-left col-xs-2"><img ng-src="{{contact.img}}" alt="Contact" class="contactImg img-responsive img-circle" /></td>
+                                <td><h4>{{contact.fname}}</h4></td>
+                                <td><h4>{{contact.lname}}</h4></td>
+                                <td><h4>{{contact.state}}: {{contact.city}}</h4></td>
+                                <td><a ng-click="loadContact(contact)"><span class="glyphicon glyphicon-info-sign" ></span></a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
